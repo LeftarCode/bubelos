@@ -1,0 +1,4 @@
+[submodule "externals/edk2"]
+	path = externals/edk2
+	url = https://github.com/tianocore/edk2.git
+	branch = stable/202011

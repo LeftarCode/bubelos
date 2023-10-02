@@ -6,4 +6,4 @@ if [ "$EUID" -ne 0 ]
 fi
 
 apt -y update
-apt -y install git python3 python3-distutils uuid-dev build-essential bison flex nasm
+apt -y install git python3 python3-distutils uuid-dev build-essential bison flex nasm mtools

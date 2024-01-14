@@ -25,6 +25,7 @@ EFI_STATUS EFIAPI EntryPoint(IN EFI_HANDLE ImageHandle,
     return EFI_NOT_FOUND;
   }
 
+  // TODO: Remember to Free FileInfo
   EFI_FILE_INFO* KernelFileInfo = GetFileInfo(KernelFile);
   if (KernelFileInfo == NULL) {
     Print(L"Could not get \\EFI\\BUBELOS\\kernel.elf info!");

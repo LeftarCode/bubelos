@@ -12,6 +12,9 @@ make all
 cd -
 
 # Build UEFI Application
+cd externals/edk2
+source edksetup.sh
+cd -
 build -p $SRC_PATH/efi/Bootloader.dsc -m $SRC_PATH/efi/Bootloader.inf -a X64 -t GCC5 -b RELEASE -D PKG_OUTPUT_DIR=$PKG_OUTPUT_DIR
 
 # Create FAT32 disk image if doesn't exist

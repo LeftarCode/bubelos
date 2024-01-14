@@ -26,13 +26,12 @@ You may use your own pre-built OVMF image. If not, it's worth building a image w
 ## Run OS in QEMU
 - Spawn UEFI shell:
 ```
-qemu-system-x86_64 -cpu qemu64 -net none -drive if=pflash,format=raw,unit=0,file=./externals/edk2/Build/OvmfX64/RELEASE_GCC5/FV/OVMF_CODE.fd,readonly=on  -drive if=pflash,format=raw,unit=1,file=./externals/edk2/Build/OvmfX64/RELEASE_GCC5/FV/OVMF_VARS.fd -drive file=./build/uefi.img,if=ide
+qemu-system-x86_64 -cpu qemu64 -net none -m 2G -machine q35 -drive if=pflash,format=raw,unit=0,file=./externals/edk2/Build/OvmfX64/RELEASE_GCC5/FV/OVMF_CODE.fd,readonly=on  -drive if=pflash,format=raw,unit=1,file=./externals/edk2/Build/OvmfX64/RELEASE_GCC5/FV/OVMF_VARS.fd -drive file=./build/uefi.img,if=ide
 ```
 - Single OVMF image:
 ```
-qemu-system-x86_64 -cpu qemu64 -net none -bios ./externals/edk2/Build/OvmfX64/RELEASE_GCC5/FV/OVMF.fd -drive file=./build/uefi.img,if=ide
+qemu-system-x86_64 -cpu qemu64 -net none -m 2G -machine q35 -bios ./externals/edk2/Build/OvmfX64/RELEASE_GCC5/FV/OVMF.fd -drive file=./build/uefi.img,if=ide
 ```
 ## TODO
 - Migrate to newer EDK2.
-- Create script that runs qemu.
-- Split script so EDK2 build/OVMF build and kernel build and seperated
+- Create faster building script, that just replace BOOTX64 file using mount.

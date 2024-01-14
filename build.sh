@@ -8,15 +8,18 @@ mkdir -p build/
 rm build/uefi.img
 
 # Build EDK2
-cd externals/edk2
-source edksetup.sh
-make -C BaseTools
-cd -
+#cd externals/edk2
+#source edksetup.sh
+#make -C BaseTools
+#cd -
 
 # Build UEFI Application
 build -p $SRC_PATH/efi/HelloWorld.dsc -m $SRC_PATH/efi/HelloWorld.inf -a X64 -t GCC5 -b RELEASE -D PKG_OUTPUT_DIR=$PKG_OUTPUT_DIR
 
 # Pack to FAT32 disk image
+if [[ -f "build/uefi.img" ]]; then
+    echo "build/uefi.img exists."
+fi
 dd if=/dev/zero of=build/uefi.img bs=512 count=93750
 dd if=/dev/zero of=build/part.img bs=512 count=91669
 

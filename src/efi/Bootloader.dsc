@@ -33,4 +33,4 @@
   PcdLib|MdePkg/Library/BasePcdLibNull/BasePcdLibNull.inf
 
 [Components]
-  ../../src/efi/HelloWorld.inf
+  ../../src/efi/Bootloader.inf

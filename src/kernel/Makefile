@@ -1,8 +1,6 @@
 CC := x86_64-linux-gnu-gcc
 
-
 SRC_DIR := src
-
 
 CFLAGS :=          \
 	-ffreestanding \
@@ -20,19 +18,21 @@ LIBS := -lgcc
 
 C_SRCS := ${SRC_DIR}/main.c
 
-OBJECTS := ${C_SOURCES:.c=.o}
-BUILD_DIR  := build
+OBJECTS := ${C_SRCS:.c=.o}
+BUILD_DIR  := ../../build/kernel
 BINARY     := ${BUILD_DIR}/kernel.elf
 
 .PHONY: all clean
 
 all: ${BINARY}
 
+# gcc-13 -ffreestanding -mcmodel=large -mno-red-zone -mno-mmx -mno-sse -mno-sse2 -T src/kernel/kernel.ld build/main.o -o build/kernel.elf -nostdlib -lgcc
 ${BINARY}: ${BUILD_DIR} ${OBJECTS}
-	${CC} -T ${SRC_DIR}/kernel.ld -g3 -o ${BINARY} ${LDFLAGS} ${OBJECTS} ${LIBS}
+	${CC} -T kernel.ld -o ${BINARY} ${LDFLAGS} ${OBJECTS} ${LIBS}
 
+# gcc-13 -ffreestanding -mcmodel=large -mno-red-zone -mno-mmx -mno-sse -mno-sse2 -c src/kernel/src/main.c -o build/main.o
 %.o: %.c
-	${CC} ${INCLUDE_FLAG} -g -c $< -o $@ ${CFLAGS}
+	${CC} ${CFLAGS} -c $< -o $@
 
 ${BUILD_DIR}:
 	mkdir -p ${BUILD_DIR}

@@ -10,6 +10,7 @@
 [Sources]
   Bootloader.c
   FileSystem.c
+  Memory.c
 
 [Packages]
   MdePkg/MdePkg.dec

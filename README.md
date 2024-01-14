@@ -30,8 +30,8 @@ qemu-system-x86_64 -cpu qemu64 -net none -m 2G -machine q35 -drive if=pflash,for
 ```
 - Single OVMF image:
 ```
-qemu-system-x86_64 -cpu qemu64 -net none -m 2G -machine q35 -bios ./externals/edk2/Build/OvmfX64/RELEASE_GCC5/FV/OVMF.fd -drive file=./build/uefi.img,if=ide
+qemu-system-x86_64 -cpu qemu64 -net none -m 4G -machine q35 -bios ./externals/edk2/Build/OvmfX64/RELEASE_GCC5/FV/OVMF.fd -drive file=./build/uefi.img,if=ide
 ```
 ## TODO
 - Migrate to newer EDK2.
-- Create faster building script, that just replace BOOTX64 file using mount.
+- Fix style.

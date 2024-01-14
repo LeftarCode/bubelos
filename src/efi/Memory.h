@@ -7,5 +7,4 @@
 #include <Guid/FileInfo.h>
 #include <Uefi.h>
 
-EFI_FILE* OpenFile(IN EFI_HANDLE ImageHandle, IN CHAR16* filename);
-EFI_FILE_INFO* GetFileInfo(IN EFI_FILE* File);
+EFI_MEMORY_DESCRIPTOR* GetMemoryMap(IN UINTN* EfiMemoryMapSize, IN UINTN* EfiMapKey, IN UINTN* EfiDescriptorSize, IN UINT32* EfiDescriptorVersion);

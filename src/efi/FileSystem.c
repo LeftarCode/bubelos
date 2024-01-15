@@ -47,7 +47,7 @@ EFI_FILE_INFO* GetFileInfo(EFI_FILE* File) {
   UINTN FileInfoSize;
   status = File->GetInfo(File, &FileInfoGUID, &FileInfoSize, NULL);
 
-  EFI_FILE_INFO* FileInfo = (EFI_FILE_INFO *)AllocatePool(FileInfoSize);
+  EFI_FILE_INFO* FileInfo = (EFI_FILE_INFO*)AllocatePool(FileInfoSize);
   if (FileInfo == NULL) {
     Print(L"Error allocating File Info buffer!\n");
     return NULL;
@@ -60,4 +60,12 @@ EFI_FILE_INFO* GetFileInfo(EFI_FILE* File) {
   }
 
   return FileInfo;
+}
+
+VOID PrintFileInfo(IN EFI_FILE_INFO* FileInfo) {
+  Print(L"FileName: %s\r\n", FileInfo->FileName);
+  Print(L"Size: %llu\r\n", FileInfo->Size);
+  Print(L"FileSize: %llu\r\n", FileInfo->FileSize);
+  Print(L"PhysicalSize: %llu\r\n", FileInfo->PhysicalSize);
+  Print(L"Attribute: %llx\r\n", FileInfo->Attribute);
 }

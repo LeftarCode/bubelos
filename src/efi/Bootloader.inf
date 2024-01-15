@@ -11,6 +11,7 @@
   Bootloader.c
   FileSystem.c
   Memory.c
+  ELF.c
 
 [Packages]
   MdePkg/MdePkg.dec

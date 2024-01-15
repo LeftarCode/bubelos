@@ -34,4 +34,6 @@ qemu-system-x86_64 -cpu qemu64 -net none -m 4G -machine q35 -bios ./externals/ed
 ```
 ## TODO
 - Migrate to newer EDK2.
-- Fix style.
+- Fix style (debug prints, passing and returning params).
+- Add status print to every error message.
+- Make more GC in Bootloader.

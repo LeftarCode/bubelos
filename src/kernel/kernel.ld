@@ -1,5 +1,5 @@
 ENTRY(kmain)
-KERNEL_VMA = 0xffffffff80000000;
+KERNEL_VMA = 0x4000;
 SECTIONS
 {
     . = KERNEL_VMA;
